@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nexus-bg: #0a0a0f;
+  --nexus-surface: #13131a;
+  --nexus-card: #1a1a27;
+  --nexus-border: #2a2a3d;
+  --nexus-primary: #6366f1;
+  --nexus-secondary: #8b5cf6;
+  --nexus-accent: #06b6d4;
+  --nexus-ai: #10b981;
+  --nexus-text: #e2e8f0;
+  --nexus-muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--nexus-bg);
+  color: var(--nexus-text);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--nexus-surface); }
+::-webkit-scrollbar-thumb { background: var(--nexus-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--nexus-primary); }
+
+/* Light mode */
+body.light {
+  --nexus-bg: #f8fafc;
+  --nexus-surface: #ffffff;
+  --nexus-card: #f1f5f9;
+  --nexus-border: #e2e8f0;
+  --nexus-text: #0f172a;
+  --nexus-muted: #94a3b8;
+}
+
+/* Selection */
+::selection { background: #6366f133; color: #6366f1; }
+
+/* Typing dots */
+.typing-dot {
+  animation: bounceDot 1.4s infinite ease-in-out;
+}
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounceDot {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* Glow effects */
+.glow-primary { box-shadow: 0 0 20px #6366f133; }
+.glow-ai { box-shadow: 0 0 20px #10b98133; }
+
+/* Message animation */
+.message-enter {
+  animation: slideUpFade 0.3s ease-out forwards;
+}
+@keyframes slideUpFade {
+  from { transform: translateY(15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Voice recording pulse */
+.recording-pulse {
+  animation: recordPulse 1s ease-in-out infinite;
+}
+@keyframes recordPulse {
+  0%, 100% { box-shadow: 0 0 0 0 #ef444466; }
+  50% { box-shadow: 0 0 0 10px #ef444400; }
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* AI message glow */
+.ai-message-glow {
+  border-left: 2px solid var(--nexus-ai);
+  box-shadow: -4px 0 20px #10b98120;
+}
